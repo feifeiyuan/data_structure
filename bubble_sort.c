@@ -92,7 +92,7 @@ int main(void)
     c_end = clock();
     double space_time = c_end - c_start;
     //printf("the max_k is %d\n", max_k); //for loop once break
-    printf("the max_k is %d\n", max_k); // for loop complete
+    printf("the max_k is %d\n", arry_int[k]); // for loop complete
     printf("space time is %.f us\n", space_time);
 
 }
