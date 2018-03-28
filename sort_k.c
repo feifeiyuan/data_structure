@@ -30,7 +30,7 @@ int main(void)
     int k = 8;
     int max_k = 0;
     int len = sizeof(arry_int)/sizeof(arry_int[0]);
-    for(i=0; i<len; i++){
+    for(i=0; i<k; i++){
         for(j=i;j<len-i;j++){
             if(arry_int[i]<arry_int[j]){
                 temp = arry_int[i];
@@ -38,28 +38,22 @@ int main(void)
                 arry_int[j] = temp;
             }
         }
+    }
 
-
-// for loop once break
-# if LOOP_BREAK
-        if(i==k){
-            max_k = arry_int[i-1];
-            break;
+    for(i=k; i<len; i++){
+        if(arry_int[i]<arry_int[k-1]){
+            for(j=0; j<k-1; j++){
+                if(arry_int[i]>=arry_int[j]&&arry_int[i]<=arry_int[j+1]){
+                    arry_int[j] = arry_int[i];
+                    break;
+                }
+            }
         }
-#endif
-
     }
 
     c_end = clock();
     double space_time = c_end - c_start;
-
-#if LOOP_BREAK
-    printf("the max_k is %d\n", max_k); //for loop once break
-#endif
-
-#if LOOP_COMPLETE
     printf("the max_k is %d\n", arry_int[k-1]); // for loop complete
-#endif
 
     printf("space time is %.f us\n", space_time);
 
